@@ -1,0 +1,43 @@
+.root {
+  background-color: #FFF;
+  border-radius: 6px;
+  box-shadow: -4px 0px 0px 0px #B0C0C8 inset;
+  display: grid;
+  grid-template-columns: 8.7rem 1fr;
+}
+
+.imgContainer {
+  background-size: cover;
+  border-radius: 6px;
+  height: 8.7rem;  
+  width: 8.7rem;
+  overflow: hidden;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 6px 10px 6px 14px;
+}
+
+.textContainer > p {
+  color: #000; 
+  font-size: 1rem;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title > h4 {
+  color: #000; 
+  font-size: 1.2rem;
+}
+
+.title > button {
+  background: none; 
+  border: none; 
+  cursor: pointer;
+}

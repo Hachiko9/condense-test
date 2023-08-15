@@ -1,14 +1,32 @@
-export const useStorage = () => {
+import { useState, useCallback } from "react";
 
-    const setItem = (key: string, value: string[] ) => {
-        localStorage.setItem(key, JSON.stringify(value))
-    }
+export default function useStorage<T>(key: string) {
+    const [value, setValue] = useState<T | undefined>(() => {
+        if (typeof window !== "undefined") {
+            const value = localStorage.getItem(key);
+    
+            return value ? (JSON.parse(value)) : undefined;
+        }
 
-    const getItem = (key: string) => {
-        const item = localStorage.getItem(key);
-        if (item) return JSON.parse(item);
-        console.warn('key not found');
-    }
+        return undefined;
+    });
 
-    return {setItem, getItem}
+    const set = useCallback(
+        (v: T) => {
+            localStorage.setItem(key, JSON.stringify(v));
+            setValue(v);
+        },
+        [key]
+    );
+
+    const clear = useCallback(() => {
+        localStorage.removeItem(key);
+        setValue(undefined);
+    }, [key]);
+
+    return {
+        value,
+        set,
+        clear
+    };
 }

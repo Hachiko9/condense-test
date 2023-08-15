@@ -33,7 +33,7 @@ export const Header: FC = () => {
     if (pathname === '/movies') {
       return 'favorites ->';
     } else if (pathname === '/favorites') {
-      return 'movies';
+      return '<- back';
     } else {
       return pathname as string;
     }

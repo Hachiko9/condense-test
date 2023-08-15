@@ -1,0 +1,9 @@
+.root {
+  position: fixed;
+  top: 13px;
+  right: 11px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}

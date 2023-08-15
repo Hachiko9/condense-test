@@ -1,0 +1,31 @@
+.root {
+  align-items: flex-start;
+  background-color: #4C825B;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.25) inset;
+  display: flex;
+  flex-direction: column;
+  height: 4.5rem;
+  justify-content: center;
+  padding: 15px 11px;
+  position: relative;
+  width: 17.1rem;
+}
+
+
+.button {
+  background-color: transparent; 
+  border: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+  right: 4px;
+  position: absolute;
+  top:0;
+}
+
+.textContainer {
+  color: #FFF; 
+  display: flex;
+  font-weight: 300; 
+  justify-content: flex-start;
+}
