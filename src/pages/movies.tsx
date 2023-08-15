@@ -1,13 +1,14 @@
 'use client';
 import styles from './pages.module.css';
 import { MovieCard } from '@/components/movieCard';
-import { useContext } from 'react';
+import { forwardRef, useContext } from 'react';
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
 import Layout from './layout';
 import { useMovies } from '@/hooks/useMovies';
-import useStorage from '@/hooks/useStorage';
+import { useStorage } from '@/hooks/useStorage';
 import { NotificationsContext } from '@/components/notificationsManager/notificationsContext';
+import { Virtuoso } from 'react-virtuoso';
 
 interface IMovie {
   posterUrl: string;
@@ -41,18 +42,26 @@ const Movies: NextPageWithLayout = () => {
 
   return (
     <div className={styles.movies}>
-      <div>
-        {movies?.map((movie, id) => (
+      <Virtuoso
+        data={movies}
+        className={styles.scroller}
+        totalCount={200}
+        components={{
+          List: forwardRef<HTMLDivElement>((props, ref) => (
+            <div className={styles.moviesList} ref={ref} {...props} />
+          )),
+        }}
+        itemContent={(idx, movie) => (
           <MovieCard
             movie={movie}
-            key={id}
+            key={movie.id}
             toggleFavorite={toggleFavorite}
             isFavorite={
               !!favorites.find((favMovie) => favMovie.id === movie.id)
             }
           />
-        ))}
-      </div>
+        )}
+      />
     </div>
   );
 };

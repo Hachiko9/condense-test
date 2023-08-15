@@ -32,11 +32,11 @@ const defaultValues: INotificationsContext = {
 const NotificationsContext =
   createContext<INotificationsContext>(defaultValues);
 
-interface INotificationsStoreProps {
+interface INotificationsProviderProps {
   children: ReactNode;
 }
 
-const NotificationsStore: FC<INotificationsStoreProps> = ({ children }) => {
+const NotificationsProvider: FC<INotificationsProviderProps> = ({ children }) => {
   const [queue, setQueue] = useState<INotificationObj[]>(defaultValues.queue);
 
   const dispatchNotification = useCallback((n: INotificationObj) => {
@@ -60,7 +60,7 @@ const NotificationsStore: FC<INotificationsStoreProps> = ({ children }) => {
 
 export type {
   INotificationsContext,
-  INotificationsStoreProps,
+  INotificationsProviderProps,
   INotificationObj,
 };
-export { NotificationsContext, NotificationsStore };
+export { NotificationsContext, NotificationsProvider };

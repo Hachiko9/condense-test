@@ -1,5 +1,5 @@
 import { IMovie } from '@/pages/movies';
-import { StarIcon } from './starIcon';
+import { StarIcon } from '../starIcon/starIcon';
 import type { FC } from 'react';
 import { useState } from 'react';
 import styles from './movieCard.module.css';

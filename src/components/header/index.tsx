@@ -1,5 +1,6 @@
 'use client';
-import { useMemo, type FC, useCallback } from 'react';
+import type { FC } from 'react';
+import { useMemo, useCallback } from 'react';
 import styles from './header.module.css';
 import { usePathname } from 'next/navigation';
 import { Property } from 'csstype';

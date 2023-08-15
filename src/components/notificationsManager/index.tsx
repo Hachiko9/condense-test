@@ -3,7 +3,7 @@ import { NotificationsContext } from './notificationsContext';
 import { Notification } from '../notification';
 import styles from './notificationsManager.module.css';
 
-export default function NotificationsManager() {
+export function NotificationsManager() {
   const { queue } = useContext(NotificationsContext);
 
   return (

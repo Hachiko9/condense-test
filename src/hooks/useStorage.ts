@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-export default function useStorage<T>(key: string) {
+export function useStorage<T>(key: string) {
     const [value, setValue] = useState<T | undefined>(() => {
         if (typeof window !== "undefined") {
             const value = localStorage.getItem(key);

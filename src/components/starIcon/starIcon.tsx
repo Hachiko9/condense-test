@@ -4,7 +4,7 @@ interface IStarProps {
   color: string;
 }
 
-export const StarIcon: FC<IStarProps> = ({ color = '#D9D9D9'}) => {
+export const StarIcon: FC<IStarProps> = ({ color = '#D9D9D9' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
